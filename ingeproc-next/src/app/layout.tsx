@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.variable} font-sans bg-white text-gray-800 antialiased`}>
         <Header />
-        <main className="pt-20"> {/* Add padding top to offset fixed header */}
+        <main>
           {children}
         </main>
         <Footer />

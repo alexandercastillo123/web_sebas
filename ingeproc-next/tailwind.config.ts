@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0D2D5E', // Navy Blue for authority
-        secondary: '#F97316', // Amber/Orange for CTAs
+        primary: '#ffb200', // Yellow from reference
+        secondary: '#0D2D5E', // Navy Blue for contrast
         'neutral-dark': '#1A1A1A', // Charcoal for footer
       },
       fontFamily: {

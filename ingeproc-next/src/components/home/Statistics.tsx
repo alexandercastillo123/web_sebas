@@ -7,26 +7,26 @@ import { Briefcase, Zap, HeartHandshake, Wrench } from 'lucide-react';
 const stats = [
   {
     icon: Briefcase,
-    value: 8,
+    value: 12,
     label: 'Años de Experiencia',
     suffix: '+',
   },
   {
     icon: Zap,
-    value: 120,
+    value: 135,
     label: 'Proyectos Ejecutados',
     suffix: '+',
   },
   {
     icon: HeartHandshake,
-    value: 50,
+    value: 40,
     label: 'Clientes Satisfechos',
     suffix: '+',
   },
   {
     icon: Wrench,
-    value: 6,
-    label: 'Tipos de Servicios',
+    value: 5,
+    label: 'Especialidades',
     suffix: '',
   },
 ];
@@ -51,7 +51,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
       springValue.on('change', (latest) => {
         if (ref.current) {
           ref.current.textContent = `${Intl.NumberFormat('en-US').format(
-            latest.toFixed(0)
+            Math.round(latest)
           )}${suffix}`;
         }
       }),

@@ -2,4 +2,7 @@
 
 @theme {
   --font-sans: var(--font-inter);
+  --color-primary: #ffb200;
+  --color-secondary: #0D2D5E;
+  --color-neutral-dark: #1A1A1A;
 }
