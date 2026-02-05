@@ -6,3 +6,9 @@
   --color-secondary: #0D2D5E;
   --color-neutral-dark: #1A1A1A;
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

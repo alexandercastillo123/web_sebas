@@ -6,27 +6,19 @@ export default function AboutHero() {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                     {/* Image Column */}
-                    <div className="lg:w-1/2 relative">
-                        <div className="relative z-10">
+                    <div className="lg:w-1/2 relative group">
+                        <div className="relative z-10 overflow-hidden rounded-2xl">
                             <Image
                                 src="https://ingeproc.pe/wp-content/uploads/2020/10/img-01-1.jpg"
                                 alt="Working at Ingeproc"
-                                width={600}
-                                height={500}
-                                className="rounded-lg shadow-2xl object-cover"
+                                width={800}
+                                height={600}
+                                className="w-full h-auto shadow-2xl object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                         </div>
-                        {/* Decorative element */}
-                        <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-0"></div>
-                        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-secondary/10 rounded-full blur-3xl -z-0"></div>
-
-                        <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 hidden lg:block">
-                            <div className="bg-primary text-secondary p-8 rounded-lg shadow-xl">
-                                <h2 className="text-4xl font-black leading-tight uppercase">
-                                    Acerca de<br />Nosotros
-                                </h2>
-                            </div>
-                        </div>
+                        {/* Decorative elements */}
+                        <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-0 animate-pulse"></div>
+                        <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-secondary/10 rounded-full blur-3xl -z-0"></div>
                     </div>
 
                     {/* Content Column */}

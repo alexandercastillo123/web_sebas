@@ -1,44 +1,35 @@
 import Link from 'next/link';
-import { HardHat, Wrench, ShieldCheck, Factory, Cable, ClipboardCheck } from 'lucide-react';
+import { servicesContent } from '@/constants/services';
+import {
+  ShieldCheck,
+  Wrench,
+  Activity,
+  PencilLine,
+  ClipboardCheck,
+  Hammer,
+  Cpu,
+  Package,
+  Building2
+} from 'lucide-react';
 
-const services = [
-  {
-    icon: ShieldCheck,
-    title: 'Mantenimiento Preventivo',
-    description: 'Aseguramos la operatividad y longevidad de sus sistemas eléctricos.',
-    href: '/servicios/mantenimiento-preventivo',
-  },
-  {
-    icon: Wrench,
-    title: 'Mantenimiento Correctivo',
-    description: 'Soluciones rápidas y eficientes para fallas y emergencias eléctricas.',
-    href: '/servicios/mantenimiento-correctivo',
-  },
-  {
-    icon: Factory,
-    title: 'Fabricación de Tableros',
-    description: 'Diseño y ensamblaje de tableros de control y distribución a medida.',
-    href: '/servicios/fabricacion-de-tableros',
-  },
-  {
-    icon: HardHat,
-    title: 'Infraestructura',
-    description: 'Ejecución de proyectos de infraestructura eléctrica para la industria.',
-    href: '/servicios/infraestructura',
-  },
-  {
-    icon: Cable,
-    title: 'Suministro de Equipos',
-    description: 'Provisión de equipos eléctricos y mecánicos de alta calidad.',
-    href: '/servicios/suministro-de-equipos',
-  },
-  {
-    icon: ClipboardCheck,
-    title: 'Mediciones Eléctricas',
-    description: 'Protocolos y mediciones técnicas para garantizar la seguridad y eficiencia.',
-    href: '/servicios/mediciones-electricas',
-  },
-];
+const iconMap: Record<string, any> = {
+  "mantenimiento-predictivo": Activity,
+  "mantenimiento-preventivo": ShieldCheck,
+  "mantenimiento-correctivo": Wrench,
+  "planos-electricos": PencilLine,
+  "mediciones-electricas": ClipboardCheck,
+  "metal-mecanica": Hammer,
+  "automatizacion": Cpu,
+  "suministro-electrico": Package,
+  "obras-civiles": Building2,
+};
+
+const services = Object.values(servicesContent).map(s => ({
+  ...s,
+  icon: iconMap[s.slug] || Activity,
+  // Mapping first 3 features to subServices for the Home preview
+  subServices: s.features.slice(0, 3),
+}));
 
 export default function ServicesGrid() {
   return (
@@ -59,19 +50,27 @@ export default function ServicesGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service) => (
-            <Link href={service.href} key={service.title} className="group">
-              <div className="relative p-10 bg-gray-50 rounded-xl transition-all duration-500 hover:bg-secondary group-hover:-translate-y-2 flex flex-col h-full border-b-4 border-transparent hover:border-primary shadow-sm hover:shadow-2xl">
-                <div className="mb-8 p-4 bg-white rounded-lg inline-block shadow-sm group-hover:bg-primary group-hover:text-secondary text-primary transition-colors duration-500">
-                  <service.icon size={40} />
+            <Link href={`/servicios/${service.slug}`} key={service.slug} className="group">
+              <div className="relative p-8 bg-gray-50 rounded-xl transition-all duration-500 hover:bg-secondary group-hover:-translate-y-2 flex flex-col h-full border-b-4 border-transparent hover:border-primary shadow-sm hover:shadow-2xl">
+                <div className="mb-6 p-4 bg-white rounded-lg inline-block shadow-sm group-hover:bg-primary group-hover:text-secondary text-primary transition-colors duration-500">
+                  <service.icon size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-secondary mb-4 group-hover:text-white transition-colors duration-500">
-                  {service.title}
+                  {service.name}
                 </h3>
-                <p className="text-gray-600 group-hover:text-gray-300 transition-colors duration-500 leading-relaxed">
-                  {service.description}
+                <p className="text-gray-600 group-hover:text-gray-300 transition-colors duration-500 leading-relaxed mb-6">
+                  {service.shortDescription}
                 </p>
-                <div className="mt-8 flex items-center text-primary font-bold group-hover:text-white transition-colors duration-500">
-                  <span>MÁS INFORMACIÓN</span>
+                <ul className="space-y-2 mb-8 flex-grow">
+                  {service.subServices.map((sub, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-500 group-hover:text-gray-400">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                      {sub}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto flex items-center text-primary font-bold group-hover:text-white transition-colors duration-500">
+                  <span className="text-xs tracking-widest">VER MÁS</span>
                   <div className="ml-2 w-8 h-px bg-primary group-hover:bg-white transition-all duration-500 group-hover:w-12" />
                 </div>
               </div>

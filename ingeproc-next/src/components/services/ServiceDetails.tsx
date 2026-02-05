@@ -45,17 +45,41 @@ export default function ServiceDetails({ service }: ServiceDetailsProps) {
 
             {/* Features/Benefits Grid */}
             <div className="bg-white p-8 rounded-lg shadow-inner border border-gray-100">
-                <h3 className="text-2xl font-bold text-secondary mb-6">¿Qué incluye este servicio?</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {service.features.map((feature, index) => (
-                        <div key={index} className="flex items-center space-x-3 group">
-                            <div className="bg-primary/10 p-1 rounded-full group-hover:bg-primary transition-colors">
-                                <CheckCircle size={20} className="text-primary group-hover:text-secondary transition-colors" />
+                <h3 className="text-2xl font-bold text-secondary mb-6 border-b pb-4">Alcance del Servicio</h3>
+
+                {service.detailedContent ? (
+                    <div className="space-y-8">
+                        {service.detailedContent.map((section, idx) => (
+                            <div key={idx} className="space-y-4">
+                                <h4 className="text-lg font-bold text-primary flex items-center">
+                                    <span className="w-8 h-[2px] bg-primary mr-3"></span>
+                                    {section.label}
+                                </h4>
+                                {section.items && (
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-6 pl-11">
+                                        {section.items.map((item, i) => (
+                                            <li key={i} className="flex items-start space-x-2 text-gray-600">
+                                                <div className="mt-1.5 w-1.5 h-1.5 bg-secondary rounded-full flex-shrink-0"></div>
+                                                <span className="text-sm">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
-                            <span className="font-medium text-gray-700">{feature}</span>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {service.features.map((feature, index) => (
+                            <div key={index} className="flex items-center space-x-3 group">
+                                <div className="bg-primary/10 p-1 rounded-full group-hover:bg-primary transition-colors">
+                                    <CheckCircle size={20} className="text-primary group-hover:text-secondary transition-colors" />
+                                </div>
+                                <span className="font-medium text-gray-700">{feature}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* Extra Image/Callout placeholder */}

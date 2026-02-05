@@ -11,7 +11,7 @@ const fadeIn = {
 export default function Hero() {
   return (
     <section
-      className="relative h-screen min-h-[600px] flex items-center justify-center text-white"
+      className="relative h-screen min-h-[600px] flex items-center justify-center text-white pt-20"
       style={{
         backgroundImage: `url('https://ingeproc.pe/wp-content/uploads/2020/11/13.jpg')`,
         backgroundSize: 'cover',
@@ -39,8 +39,8 @@ export default function Hero() {
           Sistemas eléctricos de manera predictiva, preventiva y correctiva con los más altos estándares de calidad.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/contacto" className="w-full sm:w-auto bg-primary hover:bg-white text-secondary font-black py-4 px-10 rounded-md text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-xl">
-            NUESTROS SERVICIOS
+          <Link href="#proyectos" className="w-full sm:w-auto bg-primary hover:bg-white text-secondary font-black py-4 px-10 rounded-md text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-xl">
+            NUESTROS TRABAJOS
           </Link>
           <Link href="/nosotros" className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white hover:text-secondary text-white font-black py-4 px-10 rounded-md text-lg transition-all duration-300">
             CONÓCENOS
