@@ -77,7 +77,7 @@ export default function Footer() {
           <div className="flex items-center">
             <div className="bg-white/5 p-8 rounded-2xl border-l-4 border-primary shadow-2xl backdrop-blur-sm">
               <p className="text-sm text-gray-300 leading-relaxed italic font-medium">
-                "Ingeproc con la razón social CPJ INGENIERIA PROYECTOS Y CONSTRUCCION S.A.C es una empresa con amplia experiencia dedicada a brindar asesoría en acondicionamiento, instalación y mantenimiento de sistemas eléctricos de manera predictiva, preventiva y correctiva."
+                &ldquo;Ingeproc con la razón social CPJ INGENIERIA PROYECTOS Y CONSTRUCCION S.A.C es una empresa con amplia experiencia dedicada a brindar asesoría en acondicionamiento, instalación y mantenimiento de sistemas eléctricos de manera predictiva, preventiva y correctiva.&rdquo;
               </p>
             </div>
           </div>

@@ -6,9 +6,16 @@ const projects = [
     {
         title: 'Programación de TTA',
         description: 'Puesta en marcha del tablero de transferencia automática en edificio Alpina para garantizar energía continua.',
-        image: 'https://ingeproc.pe/wp-content/uploads/2019/01/modulo_transferencia_automatica_2244918171-770x450.jpg',
+        image: 'https://ingeproc.pe/wp-content/uploads/2019/01/modulo_transferencia_automatica_2244918171.jpg',
         icon: Zap,
         href: '/proyectos/programacion-tta',
+    },
+    {
+        title: 'Sistema de Presión Constante',
+        description: 'Automatización del sistema de presión constante en el cuarto de bombas en edificio San Isidro.',
+        image: 'https://ingeproc.pe/wp-content/uploads/2019/01/programacion_logo_2178922797.jpg',
+        icon: Cpu,
+        href: '/proyectos/automatizacion-presion-constante',
     },
     {
         title: 'Mantenimiento Predictivo',
@@ -18,10 +25,10 @@ const projects = [
         href: '/proyectos/mantenimiento-predictivo-industrial',
     },
     {
-        title: 'Mediciones de Pozo a Tierra',
+        title: 'Certificación de Pozo a Tierra',
         description: 'Protocolos de pruebas y certificación para INDECI asegurando la seguridad eléctrica.',
         image: 'https://ingeproc.pe/wp-content/uploads/2022/08/mediciones_electricas_1009078093-300x300.jpg',
-        icon: Cpu,
+        icon: Zap,
         href: '/proyectos/mediciones-de-pozo-tierra',
     },
 ];

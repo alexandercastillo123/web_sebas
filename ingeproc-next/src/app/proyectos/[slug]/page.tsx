@@ -1,6 +1,5 @@
 import { projectsContent } from "@/constants/projects";
 import ProjectDetails from "@/components/projects/ProjectDetails";
-import ServicesHero from "@/components/services/ServicesHero";
 import { notFound } from "next/navigation";
 
 interface ProjectPageProps {
@@ -10,7 +9,8 @@ interface ProjectPageProps {
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
-    const project = projectsContent[params.slug];
+    const { slug } = await params;
+    const project = projectsContent[slug];
     if (!project) return { title: "Proyecto no encontrado" };
 
     return {
@@ -19,8 +19,9 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     };
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-    const project = projectsContent[params.slug];
+export default async function ProjectPage({ params }: ProjectPageProps) {
+    const { slug } = await params;
+    const project = projectsContent[slug];
 
     if (!project) {
         notFound();
@@ -28,10 +29,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
     return (
         <main className="pt-20">
-            <ServicesHero
-                title={project.title}
-                breadcrumbTitle={project.title}
-            />
             <ProjectDetails project={project} />
         </main>
     );

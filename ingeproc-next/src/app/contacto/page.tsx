@@ -12,7 +12,6 @@ export default function ContactoPage() {
         <main className="min-h-screen">
             <ServicesHero
                 title="Contáctanos"
-                breadcrumbTitle="Contacto"
             />
 
             <ContactForm />

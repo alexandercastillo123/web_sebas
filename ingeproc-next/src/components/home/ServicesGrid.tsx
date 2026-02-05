@@ -1,18 +1,8 @@
 import Link from 'next/link';
 import { servicesContent } from '@/constants/services';
-import {
-  ShieldCheck,
-  Wrench,
-  Activity,
-  PencilLine,
-  ClipboardCheck,
-  Hammer,
-  Cpu,
-  Package,
-  Building2
-} from 'lucide-react';
+import { LucideIcon, ShieldCheck, Wrench, Activity, PencilLine, ClipboardCheck, Hammer, Cpu, Package, Building2 } from 'lucide-react';
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   "mantenimiento-predictivo": Activity,
   "mantenimiento-preventivo": ShieldCheck,
   "mantenimiento-correctivo": Wrench,
