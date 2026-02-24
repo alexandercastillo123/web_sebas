@@ -29,9 +29,9 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
                     {/* Info Column */}
                     <div className="lg:w-5/12 flex flex-col justify-start">
-                        <div className="border-b-2 border-primary pb-4 mb-6">
-                            <h2 className="text-3xl font-black text-secondary uppercase tracking-tight">
-                                Información del Proyecto
+                        <div className="border-b-2 border-brand-red pb-4 mb-6">
+                            <h2 className="text-3xl font-black text-secondary uppercase tracking-tighter">
+                                Especificación Técnica
                             </h2>
                         </div>
 
@@ -97,8 +97,8 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
                                 {(project.results || []).map((item, idx) => (
                                     <div key={idx} className="flex items-start space-x-3">
-                                        <div className="mt-2 w-2 h-2 bg-primary rotate-45 shrink-0" />
-                                        <span className="text-gray-700 font-medium">{item}</span>
+                                        <div className="mt-2 w-2 h-2 bg-brand-red rotate-45 shrink-0" />
+                                        <span className="text-gray-700 font-bold text-sm uppercase tracking-tight">{item}</span>
                                     </div>
                                 ))}
                             </div>
@@ -130,22 +130,22 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
             </div>
 
             {/* Subscribe Style CTA */}
-            <section className="bg-primary py-16 mt-20">
+            <section className="bg-brand-red py-16 mt-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                         <div>
-                            <h2 className="text-3xl font-black text-secondary uppercase tracking-tighter mb-2">
-                                ¿Necesitas más información?
+                            <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-2">
+                                ¿Necesita una Evaluación Técnica?
                             </h2>
-                            <p className="text-secondary/70 font-medium uppercase text-sm tracking-widest">
-                                Envíanos un correo y nuestro equipo se pondrá en contacto contigo.
+                            <p className="text-white/80 font-medium uppercase text-sm tracking-widest">
+                                Nuestro equipo de ingenieros está listo para su próximo proyecto.
                             </p>
                         </div>
                         <div className="flex gap-4">
-                            <Link href="/contacto" className="bg-secondary text-white px-8 py-4 rounded font-black uppercase text-sm tracking-widest hover:bg-black transition-all">
-                                Contáctanos
+                            <Link href="/contacto" className="bg-secondary text-white px-8 py-4 font-black uppercase text-[10px] tracking-[0.2em] hover:bg-black transition-all border border-white/20">
+                                CONTACTAR AHORA
                             </Link>
-                            <a href="tel:+51947258015" className="bg-white text-secondary px-8 py-4 rounded font-black uppercase text-sm tracking-widest border-2 border-secondary/10 hover:border-secondary transition-all">
+                            <a href="tel:+51947258015" className="bg-white text-secondary px-8 py-4 font-black uppercase text-[10px] tracking-[0.2em] border border-white/10 hover:bg-gray-50 transition-all">
                                 +51 947-258-015
                             </a>
                         </div>

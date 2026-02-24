@@ -2,9 +2,41 @@
 
 @theme {
   --font-sans: var(--font-inter);
-  --color-primary: #ffb200;
-  --color-secondary: #0D2D5E;
+  --color-primary: #E31E24;
+  --color-secondary: #000000;
+  --color-brand-red: #E31E24;
+  --color-brand-yellow: #ffb200;
   --color-neutral-dark: #1A1A1A;
+}
+
+@keyframes bounce-subtle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll-logos {
+  animation: scroll-logos 30s linear infinite;
 }
 
 @layer base {

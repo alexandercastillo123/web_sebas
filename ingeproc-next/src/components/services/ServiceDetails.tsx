@@ -18,6 +18,7 @@ export default function ServiceDetails({ service }: ServiceDetailsProps) {
                     alt={service.name}
                     fill
                     className="object-cover"
+                    unoptimized
                     priority
                 />
                 <div className="absolute top-0 left-0 bg-primary text-secondary px-6 py-3 font-bold text-lg rounded-br-lg shadow-lg">
@@ -51,8 +52,8 @@ export default function ServiceDetails({ service }: ServiceDetailsProps) {
                     <div className="space-y-8">
                         {service.detailedContent.map((section, idx) => (
                             <div key={idx} className="space-y-4">
-                                <h4 className="text-lg font-bold text-primary flex items-center">
-                                    <span className="w-8 h-[2px] bg-primary mr-3"></span>
+                                <h4 className="text-lg font-black text-brand-red flex items-center uppercase tracking-tight">
+                                    <span className="w-8 h-[2px] bg-brand-red mr-3"></span>
                                     {section.label}
                                 </h4>
                                 {section.items && (
@@ -72,10 +73,10 @@ export default function ServiceDetails({ service }: ServiceDetailsProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {service.features.map((feature, index) => (
                             <div key={index} className="flex items-center space-x-3 group">
-                                <div className="bg-primary/10 p-1 rounded-full group-hover:bg-primary transition-colors">
-                                    <CheckCircle size={20} className="text-primary group-hover:text-secondary transition-colors" />
+                                <div className="bg-brand-red/10 p-1 rounded-full group-hover:bg-brand-red transition-colors">
+                                    <CheckCircle size={20} className="text-brand-red group-hover:text-white transition-colors" />
                                 </div>
-                                <span className="font-medium text-gray-700">{feature}</span>
+                                <span className="font-bold text-xs uppercase tracking-tight text-gray-700">{feature}</span>
                             </div>
                         ))}
                     </div>
@@ -103,8 +104,8 @@ export default function ServiceDetails({ service }: ServiceDetailsProps) {
             </div>
 
             {/* Blockquote from HTML */}
-            <blockquote className="border-l-4 border-primary bg-secondary/5 p-8 italic text-lg text-secondary/90 rounded-r relative shadow-sm">
-                <span className="absolute top-0 right-4 text-6xl text-primary/20 font-serif leading-none">“</span>
+            <blockquote className="border-l-4 border-brand-red bg-secondary/5 p-8 italic text-lg text-secondary/90 rounded-r relative shadow-sm">
+                <span className="absolute top-0 right-4 text-6xl text-brand-red/20 font-serif leading-none">“</span>
                 Atraemos a los mejores talentos y utilizamos equipos de vanguardia para asegurar que su sistema eléctrico esté en manos expertas, brindando tranquilidad y continuidad operacional a su negocio.
             </blockquote>
         </div>

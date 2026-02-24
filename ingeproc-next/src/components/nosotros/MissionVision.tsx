@@ -28,27 +28,28 @@ export default function MissionVision() {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {cards.map((card, idx) => (
-                        <div key={idx} className="group bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-                            <div className="h-64 relative overflow-hidden">
-                                <Image
-                                    src={card.image}
-                                    alt={card.title}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-secondary/40 group-hover:bg-secondary/20 transition-colors" />
-                                <div className="absolute top-6 left-6 text-primary drop-shadow-lg">
-                                    {card.icon}
-                                </div>
+                        <div key={idx} className="group bg-white border border-gray-100 p-10 transition-all duration-500 hover:shadow-2xl flex flex-col h-full relative overflow-hidden">
+                            {/* Decorative ID background */}
+                            <div className="absolute -top-4 -right-2 text-7xl font-black text-gray-50 select-none group-hover:text-brand-red/5 transition-colors">
+                                0{idx + 1}
                             </div>
-                            <div className="p-8 flex flex-col flex-grow">
-                                <h3 className="text-2xl font-bold text-secondary mb-4 flex items-center">
-                                    <span className="w-10 h-1 bg-primary mr-3" />
+
+                            <div className="relative z-10 mb-8 p-4 w-16 h-16 bg-gray-50 border border-gray-100 group-hover:bg-brand-red group-hover:text-white group-hover:border-brand-red transition-all duration-500 flex items-center justify-center text-secondary">
+                                {card.icon}
+                            </div>
+
+                            <div className="relative z-10 flex-grow">
+                                <h3 className="text-xl font-black text-secondary mb-6 uppercase tracking-tight group-hover:text-brand-red transition-colors">
                                     {card.title}
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed text-[15px]">
+                                <p className="text-gray-500 text-sm leading-relaxed font-medium">
                                     {card.description}
                                 </p>
+                            </div>
+
+                            <div className="mt-8 pt-6 border-t border-gray-50 group-hover:border-brand-red/10 flex items-center justify-between">
+                                <span className="text-[10px] font-black tracking-widest text-gray-300 group-hover:text-secondary transition-colors uppercase">Especificación Técnica</span>
+                                <div className="w-2 h-2 bg-gray-100 group-hover:bg-brand-red transition-colors" />
                             </div>
                         </div>
                     ))}

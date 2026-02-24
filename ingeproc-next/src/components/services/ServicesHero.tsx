@@ -10,18 +10,18 @@ interface ServicesHeroProps {
 export default function ServicesHero({
     title = "Servicios",
     breadcrumbTitle,
-    bgImage = "https://expert-themes.com/newwp/emarat/wp-content/uploads/2020/11/13.jpg"
+    bgImage = "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1920"
 }: ServicesHeroProps) {
     return (
         <section className="relative pt-20 h-[300px] lg:h-[400px] flex items-center overflow-hidden">
             {/* Background Image with Overlay */}
             <div
-                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-70"
                 style={{
                     backgroundImage: `url('${bgImage}')`,
                 }}
             >
-                <div className="absolute inset-0 bg-[#0D2D5E]/60"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 w-full relative z-10">

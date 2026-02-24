@@ -13,6 +13,7 @@ import {
   Clock,
   Search,
 } from "lucide-react";
+import { div, header } from "framer-motion/client";
 
 const services = [
   { name: "Mantenimiento Predictivo", href: "/servicios/mantenimiento-predictivo" },
@@ -39,11 +40,10 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="w-full z-50 fixed top-0 left-0 transition-all duration-300 shadow-md">
-      <div
-        className={`w-full transition-all duration-300 bg-secondary ${scrolled ? "py-2" : "py-4 md:py-6"
-          }`}
-      >
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500`}>
+
+
+      <div className={`w-full py-4 transition-all duration-500 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-2xl' : 'bg-black'} border-b border-white/10`}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="relative flex-shrink-0 group">
@@ -52,56 +52,52 @@ export default function Header() {
                 src="https://ingeproc.pe/wp-content/uploads/2022/08/ingeproc_logo_final_sin_trueno.png"
                 alt="INGEPROC Logo"
                 fill
+                sizes="(max-width: 768px) 160px, 224px"
                 className="object-contain"
+                unoptimized
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            <Link
-              href="/"
-              className="px-5 py-2 text-white hover:text-primary font-black uppercase text-sm tracking-widest transition-colors"
-            >
-              Inicio
-            </Link>
+          <nav className="hidden lg:flex items-center space-x-2">
+            {[
+              { name: "Inicio", href: "/" },
+              { name: "Servicios", href: "/servicios", hasDropdown: true },
+              { name: "Nosotros", href: "/nosotros" },
+            ].map((item) => (
+              <div key={item.name} className="relative group/nav">
+                <Link
+                  href={item.href}
+                  className="px-5 py-2 text-white hover:text-brand-red font-black uppercase text-[11px] tracking-[0.2em] transition-all flex items-center gap-1.5 relative overflow-hidden"
+                >
+                  <span className="relative z-10">{item.name}</span>
+                  {item.hasDropdown && <ChevronDown size={12} className="transition-transform group-hover/nav:rotate-180" />}
+                  <div className="absolute bottom-0 left-5 right-5 h-0.5 bg-brand-red scale-x-0 group-hover/nav:scale-x-100 transition-transform origin-left" />
+                </Link>
 
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <Link
-                href="/servicios"
-                className="flex items-center space-x-1 px-5 py-2 text-white hover:text-primary font-black uppercase text-sm tracking-widest transition-colors"
-              >
-                <span>Servicios</span>
-                <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
-              </Link>
-
-              <div className="absolute top-full right-0 w-80 bg-white shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border-t-4 border-primary">
-                <div className="py-2">
-                  {services.map((service, index) => (
-                    <Link
-                      key={index}
-                      href={service.href}
-                      className="block px-6 py-3 text-sm text-secondary hover:bg-gray-50 hover:text-primary transition-colors border-b border-gray-50 last:border-0 font-bold"
-                    >
-                      {service.name}
-                    </Link>
-                  ))}
-                </div>
+                {item.hasDropdown && (
+                  <div className="absolute top-full right-0 w-72 bg-black border-t-2 border-brand-red shadow-2xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                    <div className="py-2">
+                      {services.map((service, index) => (
+                        <Link
+                          key={index}
+                          href={service.href}
+                          className="block px-8 py-4 text-[10px] text-gray-300 hover:bg-white/5 hover:text-brand-red transition-all border-b border-white/5 last:border-0 font-black uppercase tracking-widest"
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-
-            <Link
-              href="/nosotros"
-              className="px-5 py-2 text-white hover:text-primary font-black uppercase text-sm tracking-widest transition-colors"
-            >
-              Nosotros
-            </Link>
+            ))}
 
             <Link
               href="/contacto"
-              className="ml-4 bg-primary text-secondary px-8 py-3 rounded-md font-black uppercase text-sm tracking-widest hover:bg-white transition-all transform hover:-translate-y-0.5 shadow-lg"
+              className="ml-6 bg-brand-red text-white px-8 py-4 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-white hover:text-secondary transition-all shadow-[0_4px_20px_rgba(227,30,36,0.3)]"
             >
               Contáctanos
             </Link>
@@ -109,68 +105,69 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-white w-10 h-10 flex items-center justify-center border border-white/10"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 bg-secondary z-[100] transition-transform duration-500 overflow-y-auto ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`lg:hidden fixed inset-0 bg-black z-[100] transition-all duration-500 ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible translate-x-4"
           }`}
       >
-        <div className="flex flex-col h-full p-8 pt-24 relative">
-          <button
-            onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-6 right-4 text-white p-2"
-          >
-            <X size={32} />
-          </button>
-
-          <Link
-            href="/"
-            className="text-2xl font-black text-white py-4 border-b border-white/10"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            INICIO
-          </Link>
-
-          <div className="py-4 border-b border-white/10">
-            <h3 className="text-xs font-black text-primary tracking-widest uppercase mb-4">
-              Nuestros Servicios
-            </h3>
-            <div className="space-y-4 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
-              {services.map((service, index) => (
-                <Link
-                  key={index}
-                  href={service.href}
-                  className="block text-lg text-white/80 hover:text-white font-bold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {service.name}
-                </Link>
-              ))}
+        <div className="flex flex-col h-full">
+          <div className="flex justify-between items-center p-6 border-b border-white/5">
+            <div className="relative w-40 h-10 transition-all">
+              <Image
+                src="https://ingeproc.pe/wp-content/uploads/2022/08/ingeproc_logo_final_sin_trueno.png"
+                alt="INGEPROC Logo"
+                fill
+                className="object-contain"
+              />
             </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white w-12 h-12 border border-white/10 flex items-center justify-center"
+            >
+              <X size={24} />
+            </button>
           </div>
 
-          <Link
-            href="/nosotros"
-            className="text-2xl font-black text-white py-4 border-b border-white/10"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            NOSOTROS
-          </Link>
-
-          <Link
-            href="/contacto"
-            className="mt-8 bg-primary text-secondary text-center py-5 rounded-lg font-black text-xl shadow-2xl"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            CONTÁCTANOS
-          </Link>
+          <div className="flex-grow overflow-y-auto p-10 font-black text-white px-8 py-4">
+            <h3 className="text-xs font-black text-brand-red tracking-widest uppercase mb-4">
+              Navegación
+            </h3>
+            <div className="space-y-6 uppercase">
+              <Link href="/" className="block text-4xl tracking-tighter" onClick={() => setMobileMenuOpen(false)}>
+                Inicio
+              </Link>
+              <div>
+                <Link href="/servicios" className="block text-4xl text-brand-red tracking-tighter mb-4" onClick={() => setMobileMenuOpen(false)}>
+                  Servicios
+                </Link>
+                <div className="grid grid-cols-1 gap-4 pl-4 border-l border-brand-red/20">
+                  {services.map((s, idx) => (
+                    <Link key={idx} href={s.href} className="text-xs text-gray-400 tracking-widest" onClick={() => setMobileMenuOpen(false)}>
+                      {s.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link href="/nosotros" className="block text-4xl tracking-tighter" onClick={() => setMobileMenuOpen(false)}>
+                Nosotros
+              </Link>
+              <Link
+                href="/contacto"
+                className="block w-full bg-brand-red text-white p-5 text-center text-xl mt-12 shadow-2xl font-black"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                CONTÁCTANOS
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </header>

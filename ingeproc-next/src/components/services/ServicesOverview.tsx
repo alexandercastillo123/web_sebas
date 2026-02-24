@@ -26,42 +26,54 @@ export default function ServicesOverview() {
     return (
         <section className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-16">
-                    <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Nuestros Servicios</span>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-[#0D2D5E] relative pb-6 inline-block">
-                        ¿Qué ofrecemos?
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-primary"></span>
-                    </h2>
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                    <div className="max-w-2xl">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-brand-red font-black uppercase tracking-tighter text-[10px] mb-6 border border-brand-red/20">
+                            <span className="w-1.5 h-1.5 bg-brand-red rounded-full animate-pulse" />
+                            RESUMEN OPERATIVO
+                        </div>
+                        <h2 className="text-4xl lg:text-6xl font-black text-secondary uppercase tracking-tighter leading-none">
+                            Nuestras <br />
+                            <span className="text-brand-red">Capacidades</span>
+                        </h2>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {overviewServices.map((service, index) => (
                         <div
                             key={index}
-                            className="relative group h-[350px] overflow-hidden rounded-xl shadow-lg"
+                            className="relative group h-[450px] overflow-hidden border border-gray-100 bg-black"
                         >
                             {/* Background Image */}
                             <div
-                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                className="absolute inset-0 bg-cover bg-center transition-all duration-1000 group-hover:scale-110"
                                 style={{ backgroundImage: `url('${service.image}')` }}
                             >
-                                <div className="absolute inset-0 bg-[#0D2D5E]/70 group-hover:bg-[#0D2D5E]/80 transition-all duration-500"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-700 opacity-80 group-hover:opacity-60"></div>
                             </div>
 
                             {/* Content */}
-                            <div className="relative h-full p-8 flex flex-col justify-end text-white">
-                                <div className="mb-4 transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                    <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                                        <Settings size={28} />
+                            <div className="relative h-full p-10 flex flex-col justify-end text-white">
+                                <div className="mb-6">
+                                    <div className="w-14 h-14 bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white group-hover:border-brand-red transition-all duration-500">
+                                        <Settings size={24} strokeWidth={1.5} />
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                                    <Link href={service.link}>{service.title}</Link>
+                                <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter group-hover:text-brand-red transition-colors duration-300">
+                                    {service.title}
                                 </h3>
-                                <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p className="text-gray-400 text-sm leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                                     {service.desc}
                                 </p>
+
+                                <Link href={service.link} className="inline-flex items-center text-[10px] font-black tracking-[0.3em] uppercase text-white/50 hover:text-brand-red transition-colors group/link">
+                                    EXPLORAR SERVICIO
+                                    <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </Link>
                             </div>
                         </div>
                     ))}

@@ -45,7 +45,7 @@ export default function ServicesStats() {
                     backgroundImage: "url('https://ingeproc.pe/wp-content/uploads/2020/10/3.jpg')",
                 }}
             >
-                <div className="absolute inset-0 bg-[#0D2D5E]/85"></div>
+                <div className="absolute inset-0 bg-black/90"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -59,7 +59,7 @@ export default function ServicesStats() {
                             transition={{ delay: index * 0.1 }}
                             className="relative"
                         >
-                            <div className="text-5xl lg:text-6xl font-bold text-primary mb-3">
+                            <div className="text-5xl lg:text-6xl font-black text-brand-red mb-3 tracking-tighter">
                                 <Counter value={stat.value} suffix={stat.suffix} />
                             </div>
                             <p className="text-gray-300 font-medium uppercase tracking-[2px] text-sm leading-relaxed">

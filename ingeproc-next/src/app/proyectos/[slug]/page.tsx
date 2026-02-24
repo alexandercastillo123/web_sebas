@@ -2,6 +2,10 @@ import { projectsContent } from "@/constants/projects";
 import ProjectDetails from "@/components/projects/ProjectDetails";
 import { notFound } from "next/navigation";
 
+export async function generateStaticParams() {
+    return Object.keys(projectsContent).map((slug) => ({ slug }));
+}
+
 interface ProjectPageProps {
     params: {
         slug: string;

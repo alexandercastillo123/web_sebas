@@ -65,14 +65,16 @@ export default function Statistics() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           {stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center">
-              <stat.icon className="h-12 w-12 text-secondary mb-3" />
-              <div className="text-5xl font-bold text-primary">
+            <div key={stat.label} className="flex flex-col items-center group">
+              <div className="w-16 h-16 bg-white border border-gray-100 flex items-center justify-center mb-6 group-hover:border-brand-red transition-all duration-500">
+                <stat.icon className="h-8 w-8 text-secondary group-hover:text-brand-red transition-colors" />
+              </div>
+              <div className="text-6xl font-black text-brand-red tracking-tighter">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-lg text-gray-600 mt-2">{stat.label}</p>
+              <p className="text-[10px] font-black text-secondary mt-4 uppercase tracking-[0.3em]">{stat.label}</p>
             </div>
           ))}
         </div>

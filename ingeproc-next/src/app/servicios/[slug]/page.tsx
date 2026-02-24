@@ -4,6 +4,10 @@ import ServicesHero from "@/components/services/ServicesHero";
 import ServiceSidebar from "@/components/services/ServiceSidebar";
 import ServiceDetails from "@/components/services/ServiceDetails";
 
+export async function generateStaticParams() {
+    return Object.keys(servicesContent).map((slug) => ({ slug }));
+}
+
 interface ServicePageProps {
     params: Promise<{
         slug: string;

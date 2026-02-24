@@ -35,57 +35,71 @@ const projects = [
 
 export default function Works() {
     return (
-        <section id="proyectos" className="py-24 bg-gray-50 relative overflow-hidden">
-            {/* Decorative element */}
-            <div className="absolute -left-20 top-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        <section id="proyectos" className="py-24 bg-white relative overflow-hidden">
+            {/* Technical grid background */}
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+                style={{
+                    backgroundImage: `radial-gradient(#000 1px, transparent 1px)`,
+                    backgroundSize: '30px 30px'
+                }}
+            />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-16">
-                    <div className="inline-block px-4 py-1 bg-primary/10 text-secondary font-bold uppercase tracking-widest text-xs mb-4 rounded border-l-4 border-primary">
-                        Nuestro Portafolio
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                    <div className="max-w-2xl">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-brand-red font-black uppercase tracking-tighter text-[10px] mb-6 border border-brand-red/20">
+                            <span className="w-1.5 h-1.5 bg-brand-red rounded-full animate-pulse" />
+                            HISTORIAL DE PROYECTOS
+                        </div>
+                        <h2 className="text-4xl lg:text-6xl font-black text-secondary uppercase tracking-tighter leading-none">
+                            Portafolio de <br />
+                            <span className="text-brand-red">Ingeniería</span>
+                        </h2>
                     </div>
-                    <h2 className="text-4xl lg:text-5xl font-black text-secondary uppercase tracking-tight">Nuestros Trabajos</h2>
-                    <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-                        Conoce algunos de nuestros proyectos más destacados y la calidad técnica que nos diferencia.
-                    </p>
+                    <div className="h-full border-l border-gray-200 pl-8 hidden md:block">
+                        <p className="text-secondary/60 text-[10px] font-black tracking-[0.3em] uppercase mb-2">Estado del Sistema</p>
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                            <span className="text-secondary font-mono text-sm tracking-tighter">CERTIFICADO ISO 9001</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {projects.map((project, index) => (
-                        <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full border border-gray-100">
+                        <div key={index} className="group relative bg-white border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-brand-red/20">
                             {/* Image Container */}
-                            <div className="relative h-64 overflow-hidden">
+                            <div className="relative h-48 overflow-hidden transition-all duration-700">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                    <div className="p-4 bg-primary text-secondary rounded-full transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500">
-                                        <project.icon size={24} />
+                                <div className="absolute top-4 left-4 z-20">
+                                    <div className="bg-secondary/90 backdrop-blur-md text-white text-[10px] font-mono px-2 py-1 border border-white/10">
+                                        REF: PR-0{index + 10}
                                     </div>
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="p-8 flex flex-col flex-grow">
-                                <div className="flex items-center space-x-2 text-primary text-sm font-bold mb-3">
-                                    <span className="w-6 h-[2px] bg-primary"></span>
-                                    <span className="uppercase tracking-wider">Proyecto Destacado</span>
+                            <div className="p-6 flex flex-col h-[280px]">
+                                <div className="p-3 w-12 h-12 bg-gray-50 border border-gray-100 mb-6 flex items-center justify-center text-secondary group-hover:bg-brand-red group-hover:text-white group-hover:border-brand-red transition-all duration-500">
+                                    <project.icon size={20} strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-2xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors">
+                                <h3 className="text-lg font-black text-secondary mb-3 uppercase tracking-tight group-hover:text-brand-red transition-colors line-clamp-2">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
+                                <p className="text-gray-500 text-xs leading-relaxed mb-6 flex-grow line-clamp-4">
                                     {project.description}
                                 </p>
                                 <Link
                                     href={project.href}
-                                    className="inline-flex items-center text-secondary font-black group-hover:translate-x-2 transition-transform duration-300"
+                                    className="inline-flex items-center text-[10px] font-black tracking-widest text-secondary hover:text-brand-red transition-colors group/link"
                                 >
-                                    VER DETALLES
-                                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    VER ESPECIFICACIONES
+                                    <svg className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </Link>

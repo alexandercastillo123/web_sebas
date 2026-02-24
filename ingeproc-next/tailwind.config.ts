@@ -9,9 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#ffb200', // Yellow from reference
-        secondary: '#0D2D5E', // Navy Blue for contrast
-        'neutral-dark': '#1A1A1A', // Charcoal for footer
+        primary: '#ffb200', // Yellow accent
+        secondary: '#000000', // Black industrial
+        'brand-red': '#E31E24', // Ingeproc Brand Red
+        'neutral-dark': '#1A1A1A', // Charcoal
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

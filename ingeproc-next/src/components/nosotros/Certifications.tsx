@@ -5,41 +5,36 @@ export default function Certifications() {
     return (
         <section className="py-24 bg-secondary text-white overflow-hidden relative">
             {/* Background elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-red/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
 
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Content Column */}
                     <div className="lg:w-1/2 space-y-8">
-                        <div className="inline-flex items-center space-x-3 px-4 py-2 bg-primary/20 rounded-full border border-primary/30">
-                            <Award className="text-primary" size={20} />
-                            <span className="text-primary font-bold tracking-widest uppercase text-sm">Calidad Garantizada</span>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-brand-red font-bold uppercase tracking-tighter text-[10px] mb-6 border border-white/10">
+                            <span className="w-1.5 h-1.5 bg-brand-red rounded-full animate-pulse" />
+                            ESTÁNDAR DE CALIDAD INTERNACIONAL
                         </div>
 
-                        <h2 className="text-5xl lg:text-6xl font-black leading-tight uppercase tracking-tighter">
-                            Certificación <br />
-                            <span className="text-primary italic">ISO 9001:2015</span>
+                        <h2 className="text-5xl lg:text-7xl font-black leading-none uppercase tracking-tighter mb-6">
+                            Gestión de <br />
+                            <span className="text-brand-red">Excelencia</span>
                         </h2>
 
-                        <p className="text-xl text-gray-300 leading-relaxed max-w-xl">
-                            En <span className="text-white font-bold">INGEPROC</span>, la excelencia no es un accidente, es el resultado de procesos estandarizados y un compromiso inquebrantable con la calidad.
+                        <p className="text-xl text-gray-400 leading-relaxed font-medium max-w-xl">
+                            En <span className="text-white">INGEPROC</span>, la excelencia operativa es el resultado de procesos estandarizados bajo la norma <span className="text-brand-red">ISO 9001:2015</span>.
                         </p>
 
                         <div className="space-y-4 pt-4">
-                            <p className="text-gray-400 font-medium">
-                                Contamos con la certificación internacional que avala nuestros sistemas de gestión, garantizando resultados óptimos en cada proyecto de ingeniería.
-                            </p>
-
                             <a
                                 href="/assets/docs/certificado-iso-9001.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center space-x-3 bg-primary text-secondary px-8 py-4 rounded-xl font-black uppercase text-lg hover:bg-white transition-all transform hover:-translate-y-1 shadow-2xl group"
+                                className="inline-flex items-center space-x-4 bg-brand-red text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-all shadow-[0_15px_40px_rgba(227,30,36,0.4)]"
                             >
-                                <FileText size={24} />
-                                <span>Ver Certificado Oficial</span>
-                                <ExternalLink size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+                                <FileText size={20} />
+                                <span>DESCARGAR PROTOCOLO ISO 9001</span>
                             </a>
                         </div>
                     </div>
@@ -48,7 +43,7 @@ export default function Certifications() {
                     <div className="lg:w-1/2">
                         <div className="relative group">
                             {/* Decorative Background for Images */}
-                            <div className="absolute inset-0 bg-primary/10 rounded-[3rem] -rotate-3 scale-105 group-hover:rotate-0 transition-transform duration-700"></div>
+                            <div className="absolute inset-0 bg-brand-red/10 rounded-[3rem] -rotate-3 scale-105 group-hover:rotate-0 transition-transform duration-700"></div>
 
                             <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                                 {/* Safety & Confidence Image */}

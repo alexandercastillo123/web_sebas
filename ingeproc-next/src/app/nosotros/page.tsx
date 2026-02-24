@@ -16,16 +16,13 @@ export default function NosotrosPage() {
         <>
             <ServicesHero
                 title="Nosotros"
-                bgImage="https://ingeproc.pe/wp-content/uploads/2019/01/blog3.jpg"
             />
 
             <AboutHero />
             <Certifications />
             <MissionVision />
 
-            <div className="bg-gray-50 py-10">
-                <Clients title="Empresas que confían en nosotros" />
-            </div>
+            <Clients />
         </>
     );
 }
